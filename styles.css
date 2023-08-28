@@ -12,7 +12,6 @@ header{
     padding-right: 1rem;
     height: 3rem;
     border-bottom: 1px solid grey;
-
 }
 
 .logo{
@@ -65,10 +64,15 @@ header ul a{
     height: 18rem;
     text-decoration: none;
     color: grey;
+    transition: 1s;
 }
 
 .car-wrapper:nth-child(even){
     border-right: none;
+}
+
+.car-wrapper:hover{
+    background-color: rgb(233, 231, 231);
 }
 
 .car-img{
@@ -79,6 +83,65 @@ header ul a{
 
 .car-model-and-price-wrapper{
     text-align: center;
+}
+
+/* car.html styles: */
+
+.specific-car-info-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    border-top: 1px grey solid;
+    border-bottom: 1px grey solid;
+    height: 36rem;
+}
+
+.car-image-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 26rem;
+
+}
+
+.car-image{
+    width: 80%;
+}
+
+.specific-car-info{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    border-top: 1px grey solid;
+    height: 26rem;
+}
+
+.car-model{
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.car-description{
+    text-align: center;
+}
+
+.add-to-cart-btn{
+    all: unset;
+    text-transform: uppercase;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    width: 90%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-top: 1rem;
+    cursor: pointer;
 }
 
 
@@ -109,5 +172,26 @@ header ul a{
     .car-img{
         width: 60%;
         height: 80%;
+    }
+
+    .specific-car-info-wrapper{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 3rem;
+        border-top: 1px grey solid;
+        border-bottom: 1px grey solid;
+        height: 26rem;
+    }
+
+    .specific-car-info{
+        border-left: 1px grey solid;
+        border-top: none;
+        padding-left: 6rem;
+        padding-right: 6rem;
+        padding-top: 0;
+    }
+
+    .add-to-cart-btn{
+        width: 60%;
     }
 }

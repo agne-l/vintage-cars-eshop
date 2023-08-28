@@ -11,6 +11,9 @@ const getAllCars = async()=>{
         const carWrapper = document.createElement('a');
         carWrapper.setAttribute('class', 'car-wrapper');
         carWrapper.href = './car.html';
+        carWrapper.addEventListener('click', ()=>{
+            localStorage.setItem('carId', car.id);
+        });
 
         const carModelAndPriceWrapper = document.createElement('div');
         carModelAndPriceWrapper.setAttribute('class', 'car-model-and-price-wrapper')
