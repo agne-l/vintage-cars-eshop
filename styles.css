@@ -31,18 +31,62 @@ header{
 }
 
 header ul{
-    list-style: none;
+    /* list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1rem; */
+    display: none;
 }
 
 header ul a{
-    text-decoration: none;
+    /* text-decoration: none;
     color: grey;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 14px; */
+    display: none;
 }
 
 .cart-img{
     width: 20px;
+}
+
+.all-cars-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px grey solid;
+    margin-top: 3rem;
+}
+
+.car-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-right: 1px grey solid;
+    border-bottom: 1px grey solid;
+}
+
+.car-wrapper:nth-child(even){
+    border-right: none;
+}
+
+.car-img{
+    width: 60%;
+    height: 80%;
+    object-fit: contain;
+}
+
+
+@media screen and (min-width: 768px) {
+    header ul{
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+    }
+    
+    header ul a{
+        display:initial;
+        text-decoration: none;
+        color: grey;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
 }
