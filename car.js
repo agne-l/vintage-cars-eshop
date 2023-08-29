@@ -1,5 +1,6 @@
 const carId = localStorage.getItem('carId');
 const deleteButton = document.getElementById('delete-btn');
+const returnToMainPageButton = document.getElementById('return-to-main-page-btn');
 
 const addCarToScreen = (car)=>{
     const image = document.getElementById('car-image');
@@ -51,4 +52,8 @@ deleteButton.addEventListener('click', async()=>{
         const infoMessage = document.getElementById('info-message');
         infoMessage.innerHTML = 'Something went wrong. The car has not been deleted.';
     }
+});
+
+returnToMainPageButton.addEventListener('click', ()=>{
+    window.location.replace('./index.html');
 });

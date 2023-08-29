@@ -100,7 +100,7 @@ header ul a{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 26rem;
+    height: 15rem;
 
 }
 
@@ -114,9 +114,11 @@ header ul a{
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    /* padding-top: 2rem;
+    border-top: 1px grey solid; */
+    /* height: 26rem; */
+    padding-bottom: 2rem;
     padding-top: 2rem;
-    border-top: 1px grey solid;
-    height: 26rem;
 }
 
 .car-model{
@@ -134,7 +136,7 @@ header ul a{
     font-size: 12px;
     background-color: rgb(51, 50, 50);
     color: white;
-    width: 90%;
+    width: 80%;
     padding: 0.5rem;
     display: flex;
     align-items: center;
@@ -144,11 +146,19 @@ header ul a{
     cursor: pointer;
 }
 
+.btn-wrapper{
+    width:50%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .delete-btn{
     all: unset;
     text-decoration: underline;
     cursor: pointer;
     color: black;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
 .info-message{
@@ -170,22 +180,23 @@ header ul a{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 30%;
+    width: 80%;
 }
 
 .submit-btn{
     all: unset;
-    width: 30%;
+    width: 100%;
     box-sizing: border-box;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     text-transform: uppercase;
     font-size: 12px;
     background-color: rgb(51, 50, 50);
     color: white;
     padding: 0.5rem;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
+    text-align: center;
     border-radius: 6px;
     cursor: pointer;
 }
@@ -194,6 +205,15 @@ header ul a{
     width: 100%;
     text-align: center;
     padding-top: 1.5rem;
+}
+
+.return-to-main-page-btn{
+    all: unset;
+    align-self: self-end;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -231,7 +251,11 @@ header ul a{
         margin-top: 3rem;
         border-top: 1px grey solid;
         border-bottom: 1px grey solid;
-        /* height: 26rem; */
+        height: 26rem;
+    }
+
+    .car-image-wrapper{
+        height: 100%;
     }
 
     .specific-car-info{
@@ -244,5 +268,13 @@ header ul a{
 
     .add-to-cart-btn{
         width: 60%;
+    }
+
+    .input-wrapper{
+        width: 30%;
+    }
+    
+    .submit-btn{
+        width: 100%;
     }
 }

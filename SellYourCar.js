@@ -1,6 +1,7 @@
-const button = document.getElementById('submit-btn');
+const submitButton = document.getElementById('submit-btn');
+const returnToMainPageButton = document.getElementById('return-to-main-page-btn');
 
-button.addEventListener('click', async()=>{
+submitButton.addEventListener('click', async()=>{
     const carModel = document.getElementById('model').value;
     const carPrice = document.getElementById('price').value;
     const carDescription = document.getElementById('description').value;
@@ -45,4 +46,8 @@ button.addEventListener('click', async()=>{
 
     }
 
+});
+
+returnToMainPageButton.addEventListener('click', ()=>{
+    window.location.replace('./index.html');
 });
