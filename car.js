@@ -1,5 +1,5 @@
 const carId = localStorage.getItem('carId');
-console.log(carId);
+const deleteButton = document.getElementById('delete-btn');
 
 const addCarToScreen = (car)=>{
     const image = document.getElementById('car-image');
@@ -27,3 +27,28 @@ const getCar = async()=>{
 };
 
 getCar();
+
+deleteButton.addEventListener('click', async()=>{
+
+    try{
+        const response = await fetch('https://64ec59abf9b2b70f2bfa23f8.mockapi.io/cars/' + carId,
+        {
+            method: 'DELETE',
+        }
+        );
+
+        const data = await response.json();
+
+        if(data){
+            const infoMessage = document.getElementById('info-message');
+            infoMessage.innerHTML = 'The car has been deleted.';
+
+            setTimeout(()=>{
+                window.location.replace('./index.html');
+            }, 3000);
+        }
+    }catch(err){
+        const infoMessage = document.getElementById('info-message');
+        infoMessage.innerHTML = 'Something went wrong. The car has not been deleted.';
+    }
+});

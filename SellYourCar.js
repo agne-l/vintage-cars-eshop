@@ -33,7 +33,7 @@ button.addEventListener('click', async()=>{
 
         if(data){
             const messageWrapper = document.getElementById('message-wrapper');
-            messageWrapper.innerHTML = 'Congratulations! Your car has been added to the list!';
+            messageWrapper.innerHTML = 'Congratulations! Your car has been added to our shop!';
 
             setTimeout(()=>{
                 window.location.replace('./index.html');
