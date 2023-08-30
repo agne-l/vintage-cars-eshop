@@ -1,12 +1,17 @@
 const submitButton = document.getElementById('submit-btn');
 const returnToMainPageButton = document.getElementById('return-to-main-page-btn');
 
+
 const getCarObject = ()=>{
     const carModel = document.getElementById('model').value;
     const carPrice = document.getElementById('price').value;
     const carDescription = document.getElementById('description').value;
     const carLocation = document.getElementById('location').value;
     const carImage = document.getElementById('image').value;
+
+    if(!carModel || !carPrice || !carDescription || !carLocation || !carImage){
+        throw new Error('Missing input.');
+    }
 
     const addedCar = {
         model: carModel,
