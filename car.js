@@ -1,6 +1,8 @@
-const carId = localStorage.getItem('carId');
 const deleteButton = document.getElementById('delete-btn');
 const returnToMainPageButton = document.getElementById('return-to-main-page-btn');
+
+const url = new URL(window.location.href);
+const carId = url.searchParams.get('carId');
 
 const addCarToScreen = (car)=>{
     const image = document.getElementById('car-image');
