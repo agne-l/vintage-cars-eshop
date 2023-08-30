@@ -1,3 +1,5 @@
+const carsURL = 'https://64ec59abf9b2b70f2bfa23f8.mockapi.io/cars/';
+
 const deleteButton = document.getElementById('delete-btn');
 const returnToMainPageButton = document.getElementById('return-to-main-page-btn');
 
@@ -22,39 +24,63 @@ const addCarToScreen = (car)=>{
 }
 
 const getCar = async()=>{
-    const response = await fetch('https://64ec59abf9b2b70f2bfa23f8.mockapi.io/cars/' + carId);
-    const car = await response.json();
-
-    console.log(car);
-    addCarToScreen(car);
+    try{
+        const response = await fetch(carsURL + carId);
+        const car = await response.json();
+        return car;
+    } catch(err){
+        return false;
+    }
 };
 
-getCar();
 
-deleteButton.addEventListener('click', async()=>{
-
+const deleteCar = async()=>{
     try{
-        const response = await fetch('https://64ec59abf9b2b70f2bfa23f8.mockapi.io/cars/' + carId,
+        const response = await fetch(carsURL + carId,
         {
             method: 'DELETE',
         }
         );
-
+    
         const data = await response.json();
+        return data;
+    } catch(err){
+        return false;
+    }
+};
 
-        if(data){
-            const infoMessage = document.getElementById('info-message');
-            infoMessage.innerHTML = 'The car has been deleted.';
+const onCarDeleted = (data)=>{
+    const infoMessage = document.getElementById('info-message');
+    if(data){
+        infoMessage.innerHTML = 'The car has been deleted.';
 
-            setTimeout(()=>{
-                window.location.replace('./index.html');
-            }, 3000);
-        }
-    }catch(err){
-        const infoMessage = document.getElementById('info-message');
+        setTimeout(()=>{
+            window.location.replace('./index.html');
+        }, 3000);
+    } else{
         infoMessage.innerHTML = 'Something went wrong. The car has not been deleted.';
     }
-});
+};
+
+const onClickDeleteButton = async()=>{
+    try{
+        const response = await deleteCar();
+        onCarDeleted(response);
+    }catch(err){
+        console.log(err);
+    }
+};
+
+deleteButton.addEventListener('click', onClickDeleteButton);
+
+
+const displayCar = async()=>{
+    const car = await getCar();
+    car && addCarToScreen(car);
+};
+
+displayCar();
+
 
 returnToMainPageButton.addEventListener('click', ()=>{
     window.location.replace('./index.html');
