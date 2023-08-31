@@ -30,7 +30,7 @@ const getAllCars = async()=>{
     const response = await fetch('https://64ec59abf9b2b70f2bfa23f8.mockapi.io/cars');
     const cars = await response.json();
 
-    cars.forEach((car)=>{
+    cars.sort((a, b)=>a.price - b.price).forEach((car)=>{
         const card = buildCard(car);
         carsWrapper.appendChild(card);
     });

@@ -1,10 +1,16 @@
 const carsURL = 'https://64ec59abf9b2b70f2bfa23f8.mockapi.io/cars/';
 
+const url = new URL(window.location.href);
+const carId = url.searchParams.get('carId');
+
+const addToCartButton = document.getElementById('add-to-cart-btn');
 const deleteButton = document.getElementById('delete-btn');
 const returnToMainPageButton = document.getElementById('return-to-main-page-btn');
 
-const url = new URL(window.location.href);
-const carId = url.searchParams.get('carId');
+const cart = document.getElementById('cart');
+const notification = document.createElement('div');
+
+const allClicks = [];
 
 const addCarToScreen = (car)=>{
     const image = document.getElementById('car-image');
@@ -84,4 +90,21 @@ displayCar();
 
 returnToMainPageButton.addEventListener('click', ()=>{
     window.location.replace('./index.html');
+});
+
+
+addToCartButton.addEventListener('click', ()=>{
+    localStorage.setItem('carId', carId);
+
+    const numberOfClicks = {
+    };
+    allClicks.push(numberOfClicks);
+
+    console.log(allClicks);
+
+    notification.setAttribute('class', 'notification');
+    notification.innerHTML = allClicks.length;
+
+    cart.append(notification);
+
 });
